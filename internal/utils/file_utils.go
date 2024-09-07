@@ -6,6 +6,10 @@ import (
 	"syscall"
 )
 
+func CloseFile(f *os.File) error {
+	syscall.Flock(int(f.Fd()), syscall.LOCK_UN)
+	return f.Close()
+}
 func LoadFile(filepath string) (*os.File, error) {
 	f, err := os.OpenFile(filepath, os.O_RDWR|os.O_CREATE, os.ModePerm)
 	if err != nil {

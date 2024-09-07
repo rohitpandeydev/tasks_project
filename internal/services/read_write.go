@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/rohitpandeydev/tasks/types"
-	"github.com/rohitpandeydev/tasks/utils"
+	"github.com/rohitpandeydev/tasks/internal/types"
+	"github.com/rohitpandeydev/tasks/internal/utils"
 
 	"github.com/gocarina/gocsv"
 )
@@ -31,4 +31,20 @@ func ReadCSVFile(filename string) ([]*types.Task, error) {
 	}
 
 	return tasks, nil
+}
+
+func WriteCSVFile(filename string, tasks []*types.Task) error {
+	file, err := utils.LoadFile(filename)
+	if err != nil {
+		return err
+	}
+	err = gocsv.MarshalFile(&tasks, file)
+	if err != nil {
+		return err
+	}
+
+	if err = utils.CloseFile(file); err != nil {
+		return err
+	}
+	return nil
 }

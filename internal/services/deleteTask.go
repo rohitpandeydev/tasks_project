@@ -3,7 +3,7 @@ package services
 import (
 	"fmt"
 
-	"github.com/rohitpandeydev/tasks/types"
+	"github.com/rohitpandeydev/tasks/internal/types"
 )
 
 func DeleteTask(id int) {

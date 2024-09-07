@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/rohitpandeydev/tasks/types"
+	"github.com/rohitpandeydev/tasks/internal/types"
 )
 
 var filename = "./tasks.csv"

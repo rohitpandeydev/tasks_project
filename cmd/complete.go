@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/rohitpandeydev/tasks/services"
+	"github.com/rohitpandeydev/tasks/internal/services"
 
 	"github.com/spf13/cobra"
 )
